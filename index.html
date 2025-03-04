@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeCash Clone - Get Paid for Testing</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00FF85',
+                        secondary: '#1A1B23',
+                        dark: '#0F1015'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0F1015;
+        }
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 133, 0.2);
+        }
+        .offer-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .offer-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 133, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 255, 133, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-secondary/80 backdrop-blur-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <span class="text-primary text-2xl font-bold">FREE<span class="text-white">CASH</span></span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="px-6 py-2 bg-secondary rounded-lg hover:bg-secondary/80 btn-hover">Sign In</button>
+                    <button class="px-6 py-2 bg-primary text-black rounded-lg hover:bg-primary/80 btn-hover font-medium">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="text-primary">Get paid</span> for testing apps, games & surveys
+            </h1>
+            <p class="text-xl text-gray-400 mb-8">
+                Earn up to <span class="text-primary font-semibold">$500.00</span> per offer • 
+                <span class="text-primary font-semibold">14836</span> Offers available now
+            </p>
+        </div>
+    </section>
+
+    <!-- Offers Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Netflix Offer -->
+                <div class="bg-secondary rounded-xl p-8 cursor-pointer offer-card">
+                    <img src="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" alt="Netflix" class="w-20 h-20 rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Netflix</h3>
+                    <p class="text-gray-400 mb-4">Start a trial month</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold">$10.00</span>
+                        <span class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            5.0
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Dice Dreams Offer -->
+                <div class="bg-secondary rounded-xl p-8 cursor-pointer offer-card">
+                    <img src="https://play-lh.googleusercontent.com/S5Bg66vXUMZm8UL8ht6RYJt8A-PWXkJxmKO6oE7AIZcYPvELTtm6jAr-I4QTPen9BA=s180-rw" alt="Dice Dreams" class="w-20 h-20 rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Dice Dreams</h3>
+                    <p class="text-gray-400 mb-4">Reach level 10</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold">$500.00</span>
+                        <span class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            5.0
+                        </span>
+                    </div>
+                </div>
+
+                <!-- TikTok Offer -->
+                <div class="bg-secondary rounded-xl p-8 cursor-pointer offer-card">
+                    <img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/logo-dark-e95da587b6efa1520dcd11f4b45c0cf6.svg" alt="TikTok" class="w-20 h-20 rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">TikTok</h3>
+                    <p class="text-gray-400 mb-4">Sign up</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold">$2.00</span>
+                        <span class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            5.0
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                <div class="bg-secondary rounded-xl p-8 offer-card">
+                    <i class="fas fa-coins text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Earn</h3>
+                    <p class="text-gray-400">Complete offers and earn rewards</p>
+                </div>
+                <div class="bg-secondary rounded-xl p-8 offer-card">
+                    <i class="fas fa-wallet text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Cashout</h3>
+                    <p class="text-gray-400">Withdraw your earnings instantly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
