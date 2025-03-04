@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMOS Virtual Phone</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Roboto for Android-like UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        android: {
+                            dark: '#121212',
+                            surface: '#1E1E1E',
+                            accent: '#00E676',
+                            terminal: '#000000'
+                        }
+                    },
+                    fontFamily: {
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 font-roboto min-h-screen flex items-center justify-center">
+    <!-- Phone Container -->
+    <div class="phone-container relative w-[360px] h-[720px] bg-android-dark rounded-[40px] shadow-2xl overflow-hidden">
+        <!-- Phone Bezel -->
+        <div class="absolute inset-0 pointer-events-none border-[12px] border-black rounded-[40px] z-50"></div>
+        
+        <!-- Boot Screen -->
+        <div id="boot-screen" class="absolute inset-0 bg-black flex flex-col items-center justify-center z-40">
+            <i class="fas fa-mobile-alt text-android-accent text-6xl mb-8 animate-pulse"></i>
+            <div class="w-48 h-1 bg-gray-800 rounded-full overflow-hidden">
+                <div class="boot-progress h-full w-0 bg-android-accent"></div>
+            </div>
+            <p class="text-android-accent mt-4 text-sm">VMOS Virtual Phone</p>
+        </div>
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="absolute inset-0 bg-android-dark hidden">
+            <!-- Status Bar -->
+            <div class="status-bar h-6 bg-android-surface flex justify-between items-center px-4 text-xs text-white">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="time">12:00</div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+
+            <!-- App Grid -->
+            <div class="grid grid-cols-4 gap-4 p-4 mt-8">
+                <div class="app-icon text-center" onclick="openTerminal()">
+                    <div class="w-16 h-16 rounded-2xl bg-android-surface flex items-center justify-center mx-auto">
+                        <i class="fas fa-terminal text-android-accent text-2xl"></i>
+                    </div>
+                    <p class="text-white text-xs mt-2">Terminal</p>
+                </div>
+                <div class="app-icon text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-android-surface flex items-center justify-center mx-auto">
+                        <i class="fas fa-cog text-blue-400 text-2xl"></i>
+                    </div>
+                    <p class="text-white text-xs mt-2">Settings</p>
+                </div>
+                <div class="app-icon text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-android-surface flex items-center justify-center mx-auto">
+                        <i class="fas fa-folder text-yellow-400 text-2xl"></i>
+                    </div>
+                    <p class="text-white text-xs mt-2">Files</p>
+                </div>
+                <div class="app-icon text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-android-surface flex items-center justify-center mx-auto">
+                        <i class="fas fa-shield-alt text-red-400 text-2xl"></i>
+                    </div>
+                    <p class="text-white text-xs mt-2">Root Access</p>
+                </div>
+            </div>
+
+            <!-- Navigation Bar -->
+            <div class="absolute bottom-0 w-full h-14 bg-android-surface flex justify-center items-center gap-8">
+                <button class="text-gray-400 text-xl"><i class="fas fa-arrow-left"></i></button>
+                <button class="text-white text-2xl"><i class="fas fa-circle"></i></button>
+                <button class="text-gray-400 text-xl"><i class="fas fa-square"></i></button>
+            </div>
+        </div>
+
+        <!-- Terminal Screen -->
+        <div id="terminal-screen" class="absolute inset-0 bg-android-terminal hidden">
+            <div class="terminal-header h-12 bg-android-surface flex items-center px-4">
+                <button onclick="closeTerminal()" class="text-white mr-4">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <span class="text-white">Root Terminal</span>
+            </div>
+            <div class="terminal-content p-4 text-green-400 font-mono text-sm h-[calc(100%-96px)] overflow-y-auto">
+                <div id="terminal-output"></div>
+                <div class="terminal-input-line flex">
+                    <span class="text-android-accent mr-2">root@vmos:~#</span>
+                    <input type="text" id="terminal-input" 
+                           class="bg-transparent border-none outline-none text-green-400 flex-1"
+                           onkeydown="handleTerminalInput(event)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
